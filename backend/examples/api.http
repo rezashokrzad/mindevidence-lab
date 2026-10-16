@@ -1,0 +1,83 @@
+### MindEvidence Lab API: example requests
+### Works with the VS Code "REST Client" extension or JetBrains HTTP Client.
+### The same calls as curl commands are in backend/README.md.
+###
+### Most endpoints require Google sign-in (session cookie). Without it they answer
+### 401 authentication_required, which is itself a useful check. To call them signed in,
+### sign in via the browser, then copy the `me_session` cookie value into @session below
+### and the csrf_token from GET /api/auth/session into @csrf. Never commit those values.
+
+@base = http://localhost:8000
+@session = paste-me_session-cookie-here
+@csrf = paste-csrf_token-here
+
+### Sign-in state (public; authenticated:false without a cookie)
+GET {{base}}/api/auth/session
+Cookie: me_session={{session}}
+
+### Unauthenticated → 401 authentication_required
+GET {{base}}/api/patients
+
+### Health (200 ok, or 503 with status "degraded" if PostgreSQL is down)
+GET {{base}}/api/health
+
+### List patients (paginated)
+GET {{base}}/api/patients?limit=5&offset=0
+Cookie: me_session={{session}}
+
+### Filter by category and search text
+GET {{base}}/api/patients?category=alcohol&q=withdrawal
+Cookie: me_session={{session}}
+
+### One patient (full synthetic record)
+GET {{base}}/api/patients/P-004
+Cookie: me_session={{session}}
+
+### Chronological history (paginated)
+GET {{base}}/api/patients/P-004/history?limit=50
+Cookie: me_session={{session}}
+
+### Malformed id → 422 validation_error
+GET {{base}}/api/patients/P-1
+Cookie: me_session={{session}}
+
+### Unknown id → 404 patient_not_found
+GET {{base}}/api/patients/P-999
+Cookie: me_session={{session}}
+
+### Paper catalogue
+GET {{base}}/api/papers
+Cookie: me_session={{session}}
+
+### Create a session (needs cookie + CSRF token)
+POST {{base}}/api/sessions
+Content-Type: application/json
+Cookie: me_session={{session}}
+X-CSRF-Token: {{csrf}}
+
+{"patient_id": "P-004", "title": "Maintenance vs detox", "mode": "rag"}
+
+### Unknown patient in body → 422 unknown_patient
+POST {{base}}/api/sessions
+Content-Type: application/json
+Cookie: me_session={{session}}
+X-CSRF-Token: {{csrf}}
+
+{"patient_id": "P-099"}
+
+### List my sessions
+GET {{base}}/api/sessions?limit=20
+Cookie: me_session={{session}}
+
+### Messages in a session (replace the id; empty until Batch 07 writes answers)
+GET {{base}}/api/sessions/00000000-0000-0000-0000-000000000000/messages
+Cookie: me_session={{session}}
+
+### Sign out (revokes the session server-side)
+POST {{base}}/api/auth/logout
+Cookie: me_session={{session}}
+X-CSRF-Token: {{csrf}}
+
+### Correlate with your own request id
+GET {{base}}/api/health
+X-Request-ID: my-trace-001

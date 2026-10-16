@@ -1,0 +1,20 @@
+# Secrets
+.env
+*.env
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Development document storage (copies of ingested PDFs)
+backend/storage/
+
+# Third-party PDFs are not redistributed; see docs/corpus.md and data/corpus_manifest.json for sources
+data/papers/*.pdf
+
+# Local tooling
+.claude/
+graphify-out/

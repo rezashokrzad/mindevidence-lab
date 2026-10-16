@@ -1,0 +1,3 @@
+-- 0002 down
+DROP SCHEMA IF EXISTS chat CASCADE;
+DROP TABLE IF EXISTS corpus.papers;

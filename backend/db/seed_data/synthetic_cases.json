@@ -1,0 +1,874 @@
+{
+  "meta": {
+    "dataset": "MindEvidence Lab synthetic teaching cases",
+    "version": "1.0.0",
+    "case_as_of": "2026-10-01",
+    "notice": "All cases are fictional and written for teaching. They are not real people, real clinical records, or research findings. Outcomes describe the fictional case only.",
+    "conventions": {
+      "dates": "YYYY, YYYY-MM, or YYYY-MM-DD; null = date not recorded (precision 'unknown'). For interventions, end null + status ongoing = not ended; end 'unknown' = ended on an unrecorded date.",
+      "null_values": "Omitted or null free-text/numeric fields mean 'not recorded in the case file'.",
+      "event_order": "Events are listed in chronological order; array position becomes sequence_no."
+    }
+  },
+  "patients": [
+    {
+      "patient_id": "P-001",
+      "age_years": 46,
+      "gender": "male",
+      "primary_category": "alcohol",
+      "primary_concern_label": "Alcohol",
+      "presenting_concern": "Daily heavy drinking with repeated unsuccessful attempts to cut down",
+      "brief_history": "Evening drinking escalated over six years and became daily after a 2023 divorce. Two earlier attempts to stop lasted under six weeks.",
+      "treatment_summary": "Brief intervention (2022), outpatient withdrawal management (2024), and weekly CBT relapse-prevention group since April 2026.",
+      "occupation": "Self-employed accountant",
+      "living_situation": "Lives alone; has his two children every other weekend",
+      "social_context": "Works from a home office. Drinks with clients during busy periods. Has had few close friendships since the divorce.",
+      "motivation_stage": "action",
+      "motivation_notes": "Wants to stop drinking on weekdays; undecided about full abstinence.",
+      "progress_summary": "Reports 3–4 alcohol-free days per week and is mapping high-risk evenings with the group facilitator.",
+      "uses": [
+        {
+          "key": "alcohol", "target": "alcohol", "category": "alcohol", "is_primary": true,
+          "first_use_age": null, "regular_use_age": 38,
+          "pattern_description": "Evening drinking at home; daily since mid-2023",
+          "frequency_at_intake": "Daily",
+          "quantity_at_intake": "8–10 standard drinks per evening (self-report)",
+          "route": "oral", "current_status": "reduced",
+          "notes": "Age at first drink not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "bi", "name": "Brief intervention (primary care)", "intervention_type": "brief_intervention",
+          "setting": "primary_care", "start": "2022-03", "end": "2022-03", "status": "completed",
+          "outcome_summary": "Drinking reduced for about three months, then returned to the previous pattern (self-report)."
+        },
+        {
+          "key": "wm", "name": "Outpatient withdrawal management", "intervention_type": "withdrawal_management",
+          "setting": "outpatient", "start": "2024-01", "end": "2024-01", "status": "completed",
+          "outcome_summary": "Completed; returned to daily drinking about five weeks after starting."
+        },
+        {
+          "key": "cbt", "name": "Weekly CBT relapse-prevention group", "intervention_type": "psychosocial",
+          "setting": "community", "start": "2026-04", "end": null, "status": "ongoing",
+          "sessions_offered": 24, "sessions_attended": 20,
+          "outcome_summary": "Ongoing; 20 of 24 sessions attended."
+        }
+      ],
+      "events": [
+        { "date": "2018", "type": "use_escalation", "use": "alcohol", "source": "self_report",
+          "description": "Regular evening drinking begins during a period of business expansion." },
+        { "date": "2022-03", "type": "treatment_start", "intervention": "bi", "source": "records",
+          "description": "Primary-care screening flags hazardous drinking; brief intervention delivered." },
+        { "date": "2023-06", "type": "life_event", "source": "self_report",
+          "description": "Divorce finalized; drinking becomes daily." },
+        { "date": "2024-01", "type": "treatment_start", "intervention": "wm", "source": "records",
+          "description": "Starts outpatient withdrawal management." },
+        { "date": "2024-02", "type": "relapse", "use": "alcohol", "source": "self_report",
+          "description": "Returns to daily drinking about five weeks after withdrawal management began." },
+        { "date": "2026-04", "type": "referral", "source": "records",
+          "description": "Self-refers to the community addiction service." },
+        { "date": "2026-04", "type": "treatment_start", "intervention": "cbt", "source": "records",
+          "description": "Joins a weekly CBT relapse-prevention group." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "emotional", "description": "Evenings alone after custody weekends", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "occupational_or_academic", "description": "Tax-season workload", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "family", "description": "Conflict with former spouse", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Client social events", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "social", "description": "Lives alone with limited close friendships", "salience": "moderate", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "family", "description": "Wants to stay closely involved with his children", "salience": "high", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2026-04", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "clinician_observation" },
+        { "date": "2026-04", "type": "behavior", "label": "Drinking at intake", "value": "8–10 standard drinks on most evenings", "source": "self_report" },
+        { "date": "2026-04", "type": "behavior", "label": "Withdrawal signs", "value": "Morning tremor described on two occasions", "source": "self_report" },
+        { "date": "2026-05", "type": "behavior", "label": "Disclosure", "value": "Understated quantity at first contact; more open in later sessions", "source": "clinician_observation" },
+        { "date": "2026-07", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Attendance pattern", "value": "Attends sessions consistently but often arrives late", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Alcohol-free days per week", "value": "3–4", "unit": "days/week", "baseline": "0", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Session attendance", "value": "83%", "numeric": 83, "unit": "%", "source": "records" },
+        { "date": "2026-09", "type": "measure", "label": "Self-rated craving (0–10)", "value": "5", "numeric": 5, "unit": "score 0–10", "baseline": "8", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Morning tremor", "domain": "physical_health", "status": "unknown", "since": "2026-04", "source": "self_report",
+          "notes": "Reported twice at intake; not reassessed since drinking reduced." },
+        { "description": "Poor sleep on drinking nights", "domain": "sleep", "status": "current", "since": "2026-04", "source": "self_report" }
+      ]
+    },
+    {
+      "patient_id": "P-002",
+      "age_years": 29,
+      "gender": "female",
+      "primary_category": "alcohol",
+      "primary_concern_label": "Alcohol",
+      "presenting_concern": "Weekend binge drinking with blackouts and missed work shifts",
+      "brief_history": "Binge pattern began in hospitality work at 21. An emergency-department visit after a fall in 2025 led to referral.",
+      "treatment_summary": "Emergency-department brief intervention (2025) and four sessions of motivational interviewing; currently in a monitoring phase.",
+      "occupation": "Restaurant shift manager",
+      "living_situation": "Shares a flat with two work colleagues",
+      "social_context": "Her hospitality peer group drinks heavily, and staff drinks after closing are common. She has few social contacts outside work.",
+      "motivation_stage": "action",
+      "motivation_notes": "Goal is reduced drinking rather than abstinence; ambivalent about abstinence.",
+      "progress_summary": "Binge nights reduced to about two per month and no blackouts since March 2026. Abstinence remains an undecided goal.",
+      "uses": [
+        {
+          "key": "alcohol", "target": "alcohol", "category": "alcohol", "is_primary": true,
+          "first_use_age": null, "regular_use_age": 21,
+          "pattern_description": "Binge drinking after late shifts and at weekend gatherings",
+          "frequency_at_intake": "1–2 binge nights per week",
+          "quantity_at_intake": "10+ drinks per binge episode",
+          "route": "oral", "current_status": "reduced",
+          "notes": "Drinking on non-binge days not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "ed_bi", "name": "Emergency-department brief intervention", "intervention_type": "brief_intervention",
+          "setting": "emergency_department", "start": "2025-11", "end": "2025-11", "status": "completed",
+          "outcome_summary": "Accepted referral to the community service."
+        },
+        {
+          "key": "mi", "name": "Motivational interviewing (4 sessions)", "intervention_type": "psychosocial",
+          "setting": "outpatient", "start": "2026-01", "end": "2026-02", "status": "completed",
+          "sessions_offered": 4, "sessions_attended": 4,
+          "outcome_summary": "Set a reduced-drinking goal."
+        },
+        {
+          "key": "monitor", "name": "Monthly monitoring check-ins", "intervention_type": "monitoring",
+          "setting": "outpatient", "start": "2026-06", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing."
+        }
+      ],
+      "events": [
+        { "date": "2018", "type": "use_escalation", "use": "alcohol", "source": "self_report",
+          "description": "Starts hospitality work; post-shift drinking becomes routine." },
+        { "date": "2023", "type": "occupational_or_academic", "source": "self_report",
+          "description": "First written warning at work for a missed shift." },
+        { "date": "2025-11", "type": "health_event", "source": "records",
+          "description": "Emergency-department visit after an alcohol-related fall." },
+        { "date": "2025-11", "type": "treatment_start", "intervention": "ed_bi", "source": "records",
+          "description": "Brief intervention in the emergency department; accepts referral." },
+        { "date": "2026-01", "type": "treatment_start", "intervention": "mi", "source": "records",
+          "description": "Begins four sessions of motivational interviewing." },
+        { "date": "2026-06", "type": "treatment_start", "intervention": "monitor", "source": "records",
+          "description": "Moves to monthly monitoring check-ins." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "social", "description": "Staff drinks after closing", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Weekend parties", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "physical", "description": "Post-shift exhaustion", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Social anxiety in new groups", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "occupational_or_academic", "description": "Workplace culture in which heavy drinking is common", "salience": "high", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "occupational_or_academic", "description": "Wants to keep her job", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2025-11", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "clinician_observation" },
+        { "date": "2026-01", "type": "behavior", "label": "Binge pattern at intake", "value": "Binge episodes of 10+ drinks on 1–2 nights per week", "source": "self_report" },
+        { "date": "2026-01", "type": "behavior", "label": "Blackouts", "value": "Three self-reported blackouts in the previous six months", "source": "self_report" },
+        { "date": "2026-02", "type": "behavior", "label": "Goal preference", "value": "Ambivalent about abstinence; prefers a reduced-drinking goal", "source": "clinician_observation" },
+        { "date": "2026-02", "type": "behavior", "label": "Engagement", "value": "Engaged and punctual in motivational sessions", "source": "clinician_observation" },
+        { "date": "2026-02", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "clinician_observation" },
+        { "date": "2026-06", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Binge episodes per month", "value": "~2", "numeric": 2, "unit": "episodes/month", "baseline": "6", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Blackouts since March 2026", "value": "0", "numeric": 0, "unit": "count", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Missed shifts (last quarter)", "value": "0", "numeric": 0, "unit": "count", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Social anxiety in unfamiliar groups", "domain": "anxiety", "status": "current", "since": "2026-01", "source": "self_report",
+          "notes": "Onset date not recorded; first documented at intake." },
+        { "description": "Alcohol-related blackouts", "domain": "cognitive", "status": "past", "since": "2026-01", "source": "self_report",
+          "notes": "None reported since March 2026." }
+      ]
+    },
+    {
+      "patient_id": "P-003",
+      "age_years": 22,
+      "gender": "male",
+      "primary_category": "cannabis",
+      "primary_concern_label": "Cannabis",
+      "presenting_concern": "Daily cannabis use alongside anxiety and declining academic performance",
+      "brief_history": "Started at 16 and became daily during the first year of university. Uses to manage anxiety and sleep.",
+      "treatment_summary": "University counselling (2025) and current motivational enhancement plus CBT for anxiety.",
+      "occupation": "University student (engineering, third year)",
+      "living_situation": "Shared student housing",
+      "social_context": "His housemates use cannabis in shared areas, and he has few friendships outside that group. His family lives in another city; how often they are in contact is not recorded.",
+      "motivation_stage": "preparation",
+      "motivation_notes": "Describes cannabis as helping his anxiety. Open to cutting down, but abstinence is not yet his goal.",
+      "progress_summary": "Now has two cannabis-free days per week and is tracking sleep. He is considering a move out of shared housing.",
+      "uses": [
+        {
+          "key": "cannabis", "target": "cannabis", "category": "cannabis", "is_primary": true,
+          "first_use_age": 16, "regular_use_age": 19,
+          "pattern_description": "Daily use, mostly in the evening",
+          "frequency_at_intake": "Daily",
+          "quantity_at_intake": null,
+          "route": "smoked_or_vaped", "current_status": "reduced",
+          "notes": "Describes high-potency products; amount and THC content not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "uni", "name": "University counselling (6 sessions)", "intervention_type": "psychosocial",
+          "setting": "university", "start": "2025-02", "end": "2025-04", "status": "completed",
+          "sessions_offered": 6, "sessions_attended": null,
+          "outcome_summary": "Some gains in study skills; cannabis use unchanged. Attendance not recorded."
+        },
+        {
+          "key": "self", "name": "Self-directed abstinence attempt", "intervention_type": "self_directed",
+          "setting": "self", "start": "2025-09", "end": "2025-09", "status": "discontinued",
+          "outcome_summary": "Ended after about ten days because of sleep problems."
+        },
+        {
+          "key": "me_cbt", "name": "Motivational enhancement + CBT for anxiety", "intervention_type": "psychosocial",
+          "setting": "outpatient", "start": "2026-05", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing."
+        }
+      ],
+      "events": [
+        { "date": "2020", "type": "use_onset", "use": "cannabis", "source": "self_report",
+          "description": "First cannabis use with friends at age 16." },
+        { "date": "2023-10", "type": "use_escalation", "use": "cannabis", "source": "self_report",
+          "description": "Daily use begins during the first university year." },
+        { "date": "2025-02", "type": "occupational_or_academic", "source": "records",
+          "description": "Academic warning; referred to university counselling." },
+        { "date": "2025-02", "type": "treatment_start", "intervention": "uni", "source": "records",
+          "description": "Starts university counselling." },
+        { "date": "2025-09", "type": "treatment_start", "intervention": "self", "source": "self_report",
+          "description": "Begins a self-directed abstinence attempt." },
+        { "date": "2025-09", "type": "relapse", "use": "cannabis", "source": "self_report",
+          "description": "Returns to daily use after about ten days, citing sleep problems." },
+        { "date": "2026-05", "type": "treatment_start", "intervention": "me_cbt", "source": "records",
+          "description": "Begins motivational enhancement and CBT for anxiety." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "occupational_or_academic", "description": "Exam periods", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Social situations without cannabis", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "physical", "description": "Insomnia", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "environmental", "description": "Housemates using in shared areas", "salience": "high", "source": "self_report" },
+        { "type": "risk_factor", "domain": "other", "description": "Cannabis use began in adolescence (age 16)", "salience": "moderate", "source": "self_report" },
+        { "type": "protective_factor", "domain": "occupational_or_academic", "description": "Wants to finish his degree", "salience": "high", "source": "self_report" },
+        { "type": "protective_factor", "domain": "environmental", "description": "Considering moving out of shared housing", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2025-02", "type": "motivation_stage", "label": "Stage of change", "value": "precontemplation", "source": "records" },
+        { "date": "2026-05", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "clinician_observation" },
+        { "date": "2026-05", "type": "behavior", "label": "Use pattern at intake", "value": "Uses high-potency cannabis daily, mostly in the evening", "source": "self_report" },
+        { "date": "2026-05", "type": "behavior", "label": "Days without use", "value": "Reports irritability and poor sleep on days without use", "source": "self_report" },
+        { "date": "2026-05", "type": "behavior", "label": "Attendance", "value": "Skips morning lectures regularly", "source": "self_report" },
+        { "date": "2026-06", "type": "behavior", "label": "Insight", "value": "Insightful about anxiety but describes cannabis as \"medicine\"", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Use days per week", "value": "5", "numeric": 5, "unit": "days/week", "baseline": "7", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Self-rated anxiety (0–10)", "value": "6", "numeric": 6, "unit": "score 0–10", "baseline": "7", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Lecture attendance", "value": "Improving", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Social anxiety", "domain": "anxiety", "status": "current", "since": null, "source": "self_report",
+          "notes": "Present since secondary school; exact onset not recorded." },
+        { "description": "Poor sleep and irritability on days without cannabis", "domain": "sleep", "status": "current", "since": "2025-09", "source": "self_report" }
+      ]
+    },
+    {
+      "patient_id": "P-004",
+      "age_years": 34,
+      "gender": "female",
+      "primary_category": "opioids",
+      "primary_concern_label": "Opioids (prescription → heroin)",
+      "presenting_concern": "Opioid dependence that began with prescribed analgesics after surgery",
+      "brief_history": "Prescribed opioids after 2017 spinal surgery, moved to non-prescribed pills and then heroin by 2020. Stable on buprenorphine since 2024.",
+      "treatment_summary": "Inpatient detoxification (2021), relapse, then buprenorphine maintenance with counselling since 2024.",
+      "occupation": "Part-time retail worker (former dental hygienist)",
+      "living_situation": "Lives with her mother and her eight-year-old son",
+      "social_context": "Avoids peer-support groups because of shame about past use. Her former using partner still lives locally.",
+      "motivation_stage": "maintenance",
+      "motivation_notes": "Committed to maintenance treatment; wants better help with chronic pain.",
+      "progress_summary": "She has been stable on maintenance treatment, has returned to part-time work, and is discussing pain management with a specialist.",
+      "uses": [
+        {
+          "key": "heroin", "target": "heroin", "category": "opioids", "is_primary": true,
+          "first_use_age": 28, "regular_use_age": null,
+          "pattern_description": "Heroin use from 2020 until buprenorphine maintenance began in 2024",
+          "frequency_at_intake": null, "quantity_at_intake": null,
+          "route": "unknown", "current_status": "stable_on_treatment",
+          "notes": "Route and quantity before 2024 not recorded."
+        },
+        {
+          "key": "pills", "target": "non-prescribed opioid analgesics", "category": "opioids", "is_primary": false,
+          "first_use_age": 27, "regular_use_age": null,
+          "pattern_description": "Non-prescribed opioid pills after prescribed analgesics ended",
+          "route": "oral", "current_status": "abstinent"
+        }
+      ],
+      "interventions": [
+        {
+          "key": "detox", "name": "Inpatient detoxification", "intervention_type": "withdrawal_management",
+          "setting": "inpatient", "start": "2021-08", "end": "2021-08", "status": "completed",
+          "outcome_summary": "Completed; returned to heroin use within a month of discharge."
+        },
+        {
+          "key": "bup", "name": "Buprenorphine maintenance", "intervention_type": "pharmacological",
+          "setting": "outpatient", "start": "2024-03", "end": null, "status": "ongoing",
+          "outcome_summary": "Stable; screens negative for non-prescribed opioids since July 2025."
+        },
+        {
+          "key": "couns", "name": "Individual counselling (fortnightly)", "intervention_type": "psychosocial",
+          "setting": "outpatient", "start": "2024-03", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing; focus on coping with pain."
+        }
+      ],
+      "events": [
+        { "date": "2017", "type": "health_event", "source": "records",
+          "description": "Spinal surgery; prescribed opioid analgesics for post-operative pain." },
+        { "date": "2019", "type": "use_onset", "use": "pills", "source": "self_report",
+          "description": "Begins obtaining non-prescribed opioid pills." },
+        { "date": "2020", "type": "use_onset", "use": "heroin", "source": "self_report",
+          "description": "Begins using heroin." },
+        { "date": "2021-08", "type": "treatment_start", "intervention": "detox", "source": "records",
+          "description": "Admitted for inpatient detoxification." },
+        { "date": "2021-09", "type": "relapse", "use": "heroin", "source": "self_report",
+          "description": "Returns to heroin use within a month of discharge." },
+        { "date": "2024-03", "type": "treatment_start", "intervention": "bup", "source": "records",
+          "description": "Starts buprenorphine maintenance." },
+        { "date": "2024-03", "type": "treatment_start", "intervention": "couns", "source": "records",
+          "description": "Starts fortnightly individual counselling." },
+        { "date": "2025", "type": "occupational_or_academic", "source": "self_report",
+          "description": "Returns to part-time work in retail." },
+        { "date": "2025-07", "type": "milestone", "source": "lab_test",
+          "description": "Sustained negative screens for non-prescribed opioids begin." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "physical", "description": "Back-pain flares", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Contact with former using partner", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "financial", "description": "Financial stress", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Feeling judged in group settings", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "physical", "description": "Chronic lower-back pain", "salience": "high", "source": "records" },
+        { "type": "protective_factor", "domain": "family", "description": "Caring for her son", "salience": "high", "source": "self_report" },
+        { "type": "protective_factor", "domain": "occupational_or_academic", "description": "Part-time employment since 2025", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2024-03", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2025-09", "type": "motivation_stage", "label": "Stage of change", "value": "maintenance", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Dose collection", "value": "Collects buprenorphine reliably; no missed doses in six months", "source": "records" },
+        { "date": "2026-09", "type": "behavior", "label": "Pain and craving", "value": "Reports pain flares that raise craving", "source": "self_report" },
+        { "date": "2026-09", "type": "behavior", "label": "Peer support", "value": "Expresses shame about past use and avoids peer groups", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Months of negative screens (non-prescribed opioids)", "value": "15", "numeric": 15, "unit": "months", "source": "lab_test" },
+        { "date": "2026-09", "type": "measure", "label": "Pain interference (0–10)", "value": "6", "numeric": 6, "unit": "score 0–10", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Employment", "value": "Part-time since 2025", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Chronic lower-back pain", "domain": "physical_health", "status": "current", "since": "2017", "source": "records" },
+        { "description": "Shame about past use", "domain": "other", "status": "current", "since": "2024-03", "source": "clinician_observation" }
+      ]
+    },
+    {
+      "patient_id": "P-005",
+      "age_years": 52,
+      "gender": "male",
+      "primary_category": "opioids",
+      "primary_concern_label": "Opioids (heroin)",
+      "presenting_concern": "Long-term heroin use with a non-fatal overdose in 2025",
+      "brief_history": "Has used heroin intermittently for 25 years and has had several treatment episodes. A non-fatal overdose in 2025 led to methadone re-induction.",
+      "treatment_summary": "Several methadone episodes between 2004 and 2015 and a naloxone kit provided; currently on methadone with case management.",
+      "occupation": null,
+      "living_situation": "Supported housing since June 2025, after a period of homelessness",
+      "social_context": "Estranged from his family. Sees his former using network at weekends. His keyworker is his main support.",
+      "motivation_stage": "action",
+      "motivation_notes": "Engages with daily dosing; ambivalent about weekend use.",
+      "progress_summary": "Housing is stable, he engages daily with dosing, and weekend lapses have fallen to about one a month.",
+      "uses": [
+        {
+          "key": "heroin", "target": "heroin", "category": "opioids", "is_primary": true,
+          "first_use_age": 27, "regular_use_age": null,
+          "pattern_description": "Long-term intermittent heroin use; occasional weekend use while on methadone",
+          "frequency_at_intake": "Weekend use about four times a month at re-induction",
+          "quantity_at_intake": null,
+          "route": "injected", "current_status": "reduced",
+          "notes": "Employment history and quantity not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "meth1", "name": "Methadone maintenance (multiple episodes)", "intervention_type": "pharmacological",
+          "setting": "outpatient", "start": "2004", "end": "2015", "status": "discontinued",
+          "outcome_summary": "Periods of stability; disengaged from treatment in 2015. Dates of individual episodes not recorded."
+        },
+        {
+          "key": "naloxone", "name": "Naloxone training and take-home kit", "intervention_type": "harm_reduction",
+          "setting": "community", "start": "2025-05", "end": "2025-05", "status": "completed",
+          "outcome_summary": "Training completed; carries the kit."
+        },
+        {
+          "key": "meth2", "name": "Methadone maintenance + case management", "intervention_type": "pharmacological",
+          "setting": "outpatient", "start": "2025-06", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing; weekend lapses about once a month."
+        }
+      ],
+      "events": [
+        { "date": "2001", "type": "use_onset", "use": "heroin", "source": "self_report",
+          "description": "Heroin use begins." },
+        { "date": "2004", "type": "treatment_start", "intervention": "meth1", "source": "records",
+          "description": "First methadone treatment episode." },
+        { "date": "2015", "type": "treatment_end", "intervention": "meth1", "source": "records",
+          "description": "Leaves methadone treatment." },
+        { "date": "2015", "type": "life_event", "source": "self_report",
+          "description": "Period of homelessness begins." },
+        { "date": "2023", "type": "health_event", "source": "records",
+          "description": "Completes hepatitis C antiviral treatment." },
+        { "date": "2025-05", "type": "health_event", "source": "records",
+          "description": "Non-fatal opioid overdose; naloxone given by a bystander." },
+        { "date": "2025-05", "type": "treatment_start", "intervention": "naloxone", "source": "records",
+          "description": "Receives naloxone training and a take-home kit." },
+        { "date": "2025-06", "type": "treatment_start", "intervention": "meth2", "source": "records",
+          "description": "Methadone re-induction with case management." },
+        { "date": "2025-06", "type": "life_event", "source": "records",
+          "description": "Placed in supported housing." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "environmental", "description": "Weekends without structure", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Contact with former using network", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Anniversary of his mother's death", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "financial", "description": "Cash payments", "salience": "moderate", "source": "clinician_observation" },
+        { "type": "risk_factor", "domain": "physical", "description": "Non-fatal overdose in 2025", "salience": "high", "source": "records" },
+        { "type": "risk_factor", "domain": "social", "description": "Social isolation and family estrangement", "salience": "high", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "environmental", "description": "Stable supported housing", "salience": "high", "source": "records" },
+        { "type": "protective_factor", "domain": "other", "description": "Daily contact with the dosing service", "salience": "moderate", "source": "records" }
+      ],
+      "observations": [
+        { "date": "2015", "type": "motivation_stage", "label": "Stage of change", "value": "precontemplation", "source": "records" },
+        { "date": "2025-06", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Dosing attendance", "value": "Attends methadone dosing daily", "source": "records" },
+        { "date": "2026-09", "type": "behavior", "label": "Weekend use", "value": "Occasional heroin use at weekends (self-report)", "source": "self_report" },
+        { "date": "2026-09", "type": "behavior", "label": "Naloxone", "value": "Carries a naloxone kit and knows how to use it", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Mood", "value": "Low mood and isolation noted by keyworker", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Weekend lapses per month", "value": "~1", "numeric": 1, "unit": "lapses/month", "baseline": "4", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Months in stable housing", "value": "16", "numeric": 16, "unit": "months", "source": "records" },
+        { "date": "2026-09", "type": "measure", "label": "Overdoses since re-induction", "value": "0", "numeric": 0, "unit": "count", "source": "records" }
+      ],
+      "symptoms": [
+        { "description": "Low mood", "domain": "mood", "status": "current", "since": null, "source": "clinician_observation",
+          "notes": "Noted by keyworker; onset not recorded." },
+        { "description": "Hepatitis C", "domain": "physical_health", "status": "past", "since": null, "source": "records",
+          "notes": "Antiviral treatment completed in 2023; diagnosis date not recorded." }
+      ]
+    },
+    {
+      "patient_id": "P-006",
+      "age_years": 31,
+      "gender": "male",
+      "primary_category": "stimulants",
+      "primary_concern_label": "Stimulants (cocaine)",
+      "presenting_concern": "Escalating cocaine use tied to work events and alcohol",
+      "brief_history": "Recreational use at 24 became weekly by 28 and is often combined with alcohol. He sought help after a cardiology visit for chest pain in 2026.",
+      "treatment_summary": "Twelve-week contingency management programme with CBT, now in week 9.",
+      "occupation": "Financial analyst",
+      "living_situation": "Lives with his partner",
+      "social_context": "His job involves client entertainment and late-night work. His partner is supportive.",
+      "motivation_stage": "action",
+      "motivation_notes": "Motivated by the incentive schedule; concerned about keeping progress after the programme ends.",
+      "progress_summary": "The incentive programme is going well. He and the team are planning how to keep progress going after the incentives end.",
+      "uses": [
+        {
+          "key": "cocaine", "target": "cocaine", "category": "stimulants", "is_primary": true,
+          "first_use_age": 24, "regular_use_age": 28,
+          "pattern_description": "Weekly binges, usually after work events and combined with alcohol",
+          "frequency_at_intake": "Weekly",
+          "quantity_at_intake": null,
+          "route": "intranasal", "current_status": "reduced",
+          "notes": "Quantity not recorded."
+        },
+        {
+          "key": "alcohol", "target": "alcohol", "category": "alcohol", "is_primary": false,
+          "pattern_description": "Drinks alongside cocaine at work events",
+          "route": "oral", "current_status": "reduced",
+          "notes": "Frequency and quantity not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "self", "name": "Self-directed cutting down", "intervention_type": "self_directed",
+          "setting": "self", "start": "2025", "end": "2025", "status": "discontinued",
+          "outcome_summary": "Did not last beyond two weeks."
+        },
+        {
+          "key": "cm", "name": "Contingency management + CBT (12 weeks)", "intervention_type": "psychosocial",
+          "setting": "outpatient", "start": "2026-08", "end": null, "status": "ongoing",
+          "outcome_summary": "Week 9 of 12; 7 of 8 urine screens negative."
+        }
+      ],
+      "events": [
+        { "date": "2019", "type": "use_onset", "use": "cocaine", "source": "self_report",
+          "description": "Occasional recreational cocaine use begins." },
+        { "date": "2023", "type": "use_escalation", "use": "cocaine", "source": "self_report",
+          "description": "Cocaine use becomes weekly, mostly after work events." },
+        { "date": "2025", "type": "treatment_start", "intervention": "self", "source": "self_report",
+          "description": "Tries to cut down without support." },
+        { "date": "2026-05", "type": "health_event", "source": "records",
+          "description": "Emergency visit for chest pain; referred to cardiology." },
+        { "date": "2026-08", "type": "treatment_start", "intervention": "cm", "source": "records",
+          "description": "Enters a 12-week contingency management and CBT programme." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "occupational_or_academic", "description": "Client entertainment", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "other", "description": "Drinking alcohol", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "financial", "description": "Bonus season", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "occupational_or_academic", "description": "Late-night deadlines", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "physical", "description": "Chest pain requiring emergency care (2026)", "salience": "high", "source": "records" },
+        { "type": "protective_factor", "domain": "family", "description": "Supportive partner", "salience": "high", "source": "self_report" },
+        { "type": "protective_factor", "domain": "occupational_or_academic", "description": "Stable employment", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2026-05", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "records" },
+        { "date": "2026-08", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2026-08", "type": "behavior", "label": "Use pattern at intake", "value": "Weekly binges of cocaine with alcohol", "source": "self_report" },
+        { "date": "2026-09", "type": "behavior", "label": "Urine screens", "value": "Seven of eight recent urine screens negative", "source": "lab_test" },
+        { "date": "2026-09", "type": "behavior", "label": "Self-monitoring", "value": "Tracks his own abstinence streak", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Partner report", "value": "Partner reports improved sleep and mood", "source": "family_report" },
+        { "date": "2026-09", "type": "measure", "label": "Negative urine screens", "value": "7 of 8", "unit": "screens", "source": "lab_test" },
+        { "date": "2026-09", "type": "measure", "label": "Alcohol on work nights", "value": "Reduced", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Programme week", "value": "9 of 12", "numeric": 9, "unit": "week", "source": "records" }
+      ],
+      "symptoms": [
+        { "description": "Chest pain", "domain": "physical_health", "status": "unknown", "since": "2026-05", "source": "records",
+          "notes": "One emergency visit; cardiology outcome not recorded." },
+        { "description": "Poor sleep after binges", "domain": "sleep", "status": "improving", "since": "2026-08", "source": "family_report" }
+      ]
+    },
+    {
+      "patient_id": "P-007",
+      "age_years": 38,
+      "gender": "female",
+      "primary_category": "stimulants",
+      "primary_concern_label": "Stimulants (methamphetamine)",
+      "presenting_concern": "Methamphetamine use with sleep deprivation and trauma history",
+      "brief_history": "Began using methamphetamine at 33 to cope with shift work and trauma symptoms. She had a brief psychotic episode during a 2025 binge.",
+      "treatment_summary": "Short inpatient stay (2025) and outpatient CBT; trauma-focused therapy is being planned.",
+      "occupation": "Warehouse night-shift worker",
+      "living_situation": "Lives alone with her dog",
+      "social_context": "Has few close contacts. She left a violent relationship in 2020, and a former supplier lives nearby.",
+      "motivation_stage": "preparation",
+      "motivation_notes": "Wants to stop binges and is interested in trauma-focused work. Attendance is inconsistent.",
+      "progress_summary": "Binges have fallen from weekly to roughly monthly. Trauma-focused work is planned, and the team is reviewing whether day shifts are possible.",
+      "uses": [
+        {
+          "key": "meth", "target": "methamphetamine", "category": "stimulants", "is_primary": true,
+          "first_use_age": 33, "regular_use_age": null,
+          "pattern_description": "Binges lasting 2–3 days followed by prolonged sleep",
+          "frequency_at_intake": "About weekly when outpatient CBT began",
+          "quantity_at_intake": null,
+          "route": "unknown", "current_status": "reduced",
+          "notes": "Quantity and route not reliably reported."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "inpatient", "name": "Psychiatric inpatient stay (9 days)", "intervention_type": "residential_or_inpatient",
+          "setting": "inpatient", "start": "2025-03", "end": "2025-03", "status": "completed",
+          "outcome_summary": "Psychotic symptoms resolved before discharge."
+        },
+        {
+          "key": "cbt", "name": "Outpatient CBT", "intervention_type": "psychosocial",
+          "setting": "outpatient", "start": "2025-04", "end": null, "status": "ongoing",
+          "outcome_summary": "Partial engagement; binges less frequent. Attended 4 of the last 6 appointments."
+        }
+      ],
+      "events": [
+        { "date": "2020", "type": "life_event", "source": "self_report",
+          "description": "Leaves a violent relationship." },
+        { "date": "2021", "type": "occupational_or_academic", "source": "self_report",
+          "description": "Starts night-shift warehouse work." },
+        { "date": "2021-11", "type": "use_onset", "use": "meth", "source": "self_report",
+          "description": "First methamphetamine use." },
+        { "date": "2025-03", "type": "health_event", "source": "records",
+          "description": "Brief psychotic episode during a binge." },
+        { "date": "2025-03", "type": "treatment_start", "intervention": "inpatient", "source": "records",
+          "description": "Admitted for a nine-day psychiatric inpatient stay." },
+        { "date": "2025-04", "type": "treatment_start", "intervention": "cbt", "source": "records",
+          "description": "Begins outpatient CBT." },
+        { "date": "2026-09", "type": "referral", "source": "records",
+          "description": "Assessed for trauma-focused therapy." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "occupational_or_academic", "description": "Night shifts and fatigue", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Trauma reminders", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Contact with a former supplier", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Loneliness on days off", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "social", "description": "Lives alone with few close contacts", "salience": "moderate", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "other", "description": "Interest in trauma-focused therapy", "salience": "moderate", "source": "clinician_observation" }
+      ],
+      "observations": [
+        { "date": "2025-04", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "clinician_observation" },
+        { "date": "2025-04", "type": "behavior", "label": "Binge pattern", "value": "Binges of 2–3 days followed by prolonged sleep", "source": "self_report" },
+        { "date": "2026-09", "type": "behavior", "label": "Trauma symptoms", "value": "Hypervigilance and startle response noted in sessions", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Psychotic symptoms", "value": "No return of psychotic symptoms since 2025 discharge", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Attendance", "value": "Missed two of the last six appointments", "source": "records" },
+        { "date": "2026-09", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Binge episodes per month", "value": "~1", "numeric": 1, "unit": "episodes/month", "baseline": "4", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Attendance (last 6 appointments)", "value": "4 of 6", "unit": "appointments", "source": "records" },
+        { "date": "2026-09", "type": "measure", "label": "Psychotic symptoms", "value": "None since March 2025", "source": "clinician_observation" }
+      ],
+      "symptoms": [
+        { "description": "Hypervigilance and startle responses", "domain": "trauma_related", "status": "current", "since": null, "source": "clinician_observation",
+          "notes": "Linked by the patient to the 2020 relationship; onset date not recorded." },
+        { "description": "Brief psychotic episode during a binge", "domain": "psychotic", "status": "past", "since": "2025-03", "source": "records" },
+        { "description": "Sleep deprivation during binges", "domain": "sleep", "status": "improving", "since": "2025-04", "source": "self_report" }
+      ]
+    },
+    {
+      "patient_id": "P-008",
+      "age_years": 44,
+      "gender": "male",
+      "primary_category": "behavioral",
+      "primary_concern_label": "Gambling",
+      "presenting_concern": "Online sports betting with mounting debt",
+      "brief_history": "Betting began socially around football in 2016 and moved online in 2020. Debts reached about four months' income by 2026.",
+      "treatment_summary": "Gambling helpline and self-exclusion (2024), blocking software, and current group CBT for gambling.",
+      "occupation": "Logistics supervisor",
+      "living_situation": "Married with two teenage children",
+      "social_context": "Started betting socially with friends around football. His partner now manages household finances by agreement.",
+      "motivation_stage": "action",
+      "motivation_notes": "Committed to repaying debt; plans to tell his employer about the support he is receiving.",
+      "progress_summary": "He has gone seven weeks without betting, debt repayment is under way, and he plans to tell his employer about the support he is receiving.",
+      "uses": [
+        {
+          "key": "betting", "target": "online sports betting", "category": "behavioral", "is_primary": true,
+          "first_use_age": 34, "regular_use_age": 38,
+          "pattern_description": "Late-night betting on phone apps; chases losses after large defeats",
+          "frequency_at_intake": "Several times a week (self-report)",
+          "quantity_at_intake": "Debt of about four months' income by early 2026",
+          "route": "not_applicable", "current_status": "abstinent",
+          "notes": "Exact stake amounts not recorded."
+        },
+        {
+          "key": "alcohol", "target": "alcohol", "category": "alcohol", "is_primary": false,
+          "pattern_description": "Occasional drinking; not described as a problem in the case file",
+          "route": "oral", "current_status": "active"
+        }
+      ],
+      "interventions": [
+        {
+          "key": "helpline", "name": "Gambling helpline + self-exclusion", "intervention_type": "self_exclusion_or_blocking",
+          "setting": "online_or_phone", "start": "2024-06", "end": "2024-09", "status": "discontinued",
+          "outcome_summary": "Self-exclusion lapsed after three months."
+        },
+        {
+          "key": "blocking", "name": "Gambling-blocking software", "intervention_type": "self_exclusion_or_blocking",
+          "setting": "self", "start": "2026-02", "end": null, "status": "ongoing",
+          "outcome_summary": "In use; circumvented twice before the current bet-free period."
+        },
+        {
+          "key": "gcbt", "name": "Group CBT for gambling", "intervention_type": "psychosocial",
+          "setting": "community", "start": "2026-04", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing; no bets for seven weeks."
+        }
+      ],
+      "events": [
+        { "date": "2016", "type": "use_onset", "use": "betting", "source": "self_report",
+          "description": "Starts social betting on football matches." },
+        { "date": "2020", "type": "use_escalation", "use": "betting", "source": "self_report",
+          "description": "Moves to online betting apps." },
+        { "date": "2024-06", "type": "treatment_start", "intervention": "helpline", "source": "self_report",
+          "description": "Calls a gambling helpline and registers for self-exclusion." },
+        { "date": "2024-09", "type": "relapse", "use": "betting", "source": "self_report",
+          "description": "Self-exclusion lapses after three months; betting resumes." },
+        { "date": "2026-02", "type": "life_event", "source": "family_report",
+          "description": "Partner discovers the debt; joint budgeting begins." },
+        { "date": "2026-02", "type": "treatment_start", "intervention": "blocking", "source": "self_report",
+          "description": "Installs gambling-blocking software." },
+        { "date": "2026-04", "type": "treatment_start", "intervention": "gcbt", "source": "records",
+          "description": "Starts group CBT for gambling." },
+        { "date": "2026-08", "type": "milestone", "use": "betting", "source": "self_report",
+          "description": "Last recorded bet; current bet-free period begins." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "environmental", "description": "Major football fixtures", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "financial", "description": "Payday", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "family", "description": "Arguments at home", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "environmental", "description": "Betting advertisements", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "financial", "description": "Debt of about four months' income", "salience": "high", "source": "self_report" },
+        { "type": "protective_factor", "domain": "family", "description": "Partner manages finances by agreement", "salience": "high", "source": "family_report" }
+      ],
+      "observations": [
+        { "date": "2024-06", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "self_report" },
+        { "date": "2024-09", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "self_report" },
+        { "date": "2026-04", "type": "motivation_stage", "label": "Stage of change", "value": "action", "source": "clinician_observation" },
+        { "date": "2026-04", "type": "behavior", "label": "Betting pattern", "value": "Bets late at night on phone apps", "source": "self_report" },
+        { "date": "2026-04", "type": "behavior", "label": "Loss chasing", "value": "Chases losses after large defeats", "source": "self_report" },
+        { "date": "2026-06", "type": "behavior", "label": "Blocking software", "value": "Has found ways around blocking software twice", "source": "self_report" },
+        { "date": "2026-09", "type": "behavior", "label": "Finances", "value": "Partner manages household finances by agreement", "source": "family_report" },
+        { "date": "2026-09", "type": "measure", "label": "Bet-free weeks", "value": "7", "numeric": 7, "unit": "weeks", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Debt repayment plan", "value": "Active", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Self-rated urge (0–10)", "value": "4", "numeric": 4, "unit": "score 0–10", "baseline": "9", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Stress and guilt about debt", "domain": "mood", "status": "current", "since": "2026-02", "source": "self_report" }
+      ]
+    },
+    {
+      "patient_id": "P-009",
+      "age_years": 19,
+      "gender": "non_binary",
+      "primary_category": "behavioral",
+      "primary_concern_label": "Gaming",
+      "presenting_concern": "Excessive online gaming with social withdrawal after leaving college",
+      "brief_history": "Gaming rose to 10+ hours a day after leaving college in 2025, with a reversed sleep cycle and minimal contact outside the household.",
+      "treatment_summary": "Family-supported counselling since 2026 with structured daily-routine goals.",
+      "occupation": "Not in education or employment since leaving college in 2025",
+      "living_situation": "Lives with parents and a younger sibling",
+      "social_context": "Online friendships are their main social contact. They recently joined a weekly in-person coding meetup.",
+      "motivation_stage": "contemplation",
+      "motivation_notes": "Accepts that sleep and mood are affected; unsure about cutting gaming further.",
+      "progress_summary": "Gaming is down to about six hours a day. Sleep onset has moved earlier, and they attend one in-person activity each week.",
+      "uses": [
+        {
+          "key": "gaming", "target": "online gaming", "category": "behavioral", "is_primary": true,
+          "first_use_age": null, "regular_use_age": 12,
+          "pattern_description": "Gaming mostly between 22:00 and 06:00; 10+ hours a day at its peak",
+          "frequency_at_intake": "Daily",
+          "quantity_at_intake": "10+ hours per day (family report)",
+          "route": "not_applicable", "current_status": "reduced",
+          "notes": "Age at first gaming not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "limits", "name": "Parent-imposed device limits", "intervention_type": "family_based",
+          "setting": "home", "start": "2025", "end": "2025", "status": "discontinued",
+          "outcome_summary": "Escalated conflict at home; abandoned."
+        },
+        {
+          "key": "family", "name": "Family-supported counselling", "intervention_type": "family_based",
+          "setting": "outpatient", "start": "2026-03", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing; daily routine partly restored."
+        }
+      ],
+      "events": [
+        { "date": "2019", "type": "use_escalation", "use": "gaming", "source": "family_report",
+          "description": "Gaming becomes the main hobby." },
+        { "date": "2024-09", "type": "occupational_or_academic", "source": "self_report",
+          "description": "Enrols in an IT college course." },
+        { "date": "2025-03", "type": "occupational_or_academic", "source": "self_report",
+          "description": "Leaves the course in the first year." },
+        { "date": "2025-03", "type": "use_escalation", "use": "gaming", "source": "family_report",
+          "description": "Gaming rises to 10+ hours a day; sleep cycle reverses." },
+        { "date": "2025", "type": "treatment_start", "intervention": "limits", "source": "family_report",
+          "description": "Parents impose device limits." },
+        { "date": "2026-01", "type": "health_event", "source": "records",
+          "description": "GP visit for low mood and sleep problems; referred for counselling." },
+        { "date": "2026-03", "type": "treatment_start", "intervention": "family", "source": "records",
+          "description": "Family-supported counselling begins." },
+        { "date": "2026-08", "type": "milestone", "source": "self_report",
+          "description": "Starts attending a weekly in-person coding meetup." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "emotional", "description": "Boredom without structure", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "family", "description": "Conflict with parents over screen time", "salience": "high", "source": "family_report" },
+        { "type": "trigger", "domain": "environmental", "description": "Online events and tournaments", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Low mood in the morning", "salience": "moderate", "source": "self_report" },
+        { "type": "risk_factor", "domain": "occupational_or_academic", "description": "Out of education without a current plan", "salience": "moderate", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "social", "description": "Good rapport with counsellor", "salience": "moderate", "source": "clinician_observation" },
+        { "type": "protective_factor", "domain": "social", "description": "Weekly in-person coding meetup", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2026-03", "type": "motivation_stage", "label": "Stage of change", "value": "precontemplation", "source": "clinician_observation" },
+        { "date": "2026-03", "type": "behavior", "label": "Gaming hours", "value": "Games mostly between 22:00 and 06:00", "source": "family_report" },
+        { "date": "2026-03", "type": "behavior", "label": "Interruptions", "value": "Becomes distressed when gaming is interrupted", "source": "family_report" },
+        { "date": "2026-04", "type": "behavior", "label": "Engagement", "value": "Engages well with a counsellor who shares gaming knowledge", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "behavior", "label": "Offline activity", "value": "Attends a weekly in-person coding meetup", "source": "self_report" },
+        { "date": "2026-09", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Gaming hours per day", "value": "~6", "numeric": 6, "unit": "hours/day", "baseline": "10+", "source": "family_report" },
+        { "date": "2026-09", "type": "measure", "label": "Sleep onset", "value": "~03:00", "unit": "clock time", "baseline": "06:00", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Weekly offline activities", "value": "1", "numeric": 1, "unit": "activities/week", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Low mood", "domain": "mood", "status": "current", "since": "2026-01", "source": "records" },
+        { "description": "Reversed sleep cycle", "domain": "sleep", "status": "improving", "since": "2025-03", "source": "family_report" }
+      ]
+    },
+    {
+      "patient_id": "P-010",
+      "age_years": 63,
+      "gender": "female",
+      "primary_category": "alcohol",
+      "primary_concern_label": "Alcohol",
+      "presenting_concern": "Late-onset drinking after bereavement, with falls",
+      "brief_history": "She drank lightly most of her life, but daily wine use rose after her husband died in 2024. Two falls at home in 2026 prompted a GP review.",
+      "treatment_summary": "GP review (2026), bereavement counselling, and a supervised reduction plan with withdrawal monitoring.",
+      "occupation": "Retired secondary-school teacher",
+      "living_situation": "Lives alone; adult daughter lives nearby",
+      "social_context": "Bereaved in 2024. Her daughter is supportive and attends some appointments. She recently joined a community walking group.",
+      "motivation_stage": "preparation",
+      "motivation_notes": "Embarrassed to discuss drinking but open about grief; agreed to a reduction plan.",
+      "progress_summary": "She has cut down to about half a bottle on most days, joined a community walking group, and is being monitored for withdrawal symptoms.",
+      "uses": [
+        {
+          "key": "alcohol", "target": "alcohol", "category": "alcohol", "is_primary": true,
+          "first_use_age": null, "regular_use_age": 61,
+          "pattern_description": "Daily evening wine, mostly alone",
+          "frequency_at_intake": "Daily",
+          "quantity_at_intake": "About one bottle of wine per day at GP review",
+          "route": "oral", "current_status": "reduced",
+          "notes": "Light social drinking for many years before 2024; age at first drink not recorded."
+        }
+      ],
+      "interventions": [
+        {
+          "key": "gp", "name": "GP review and alcohol screening", "intervention_type": "brief_intervention",
+          "setting": "primary_care", "start": "2026-07", "end": "2026-07", "status": "completed",
+          "outcome_summary": "Hazardous drinking identified; agreed to reduce."
+        },
+        {
+          "key": "grief", "name": "Bereavement counselling (weekly)", "intervention_type": "psychosocial",
+          "setting": "community", "start": "2026-08", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing."
+        },
+        {
+          "key": "reduction", "name": "Supervised alcohol reduction plan", "intervention_type": "withdrawal_management",
+          "setting": "primary_care", "start": "2026-08", "end": null, "status": "ongoing",
+          "outcome_summary": "Ongoing; about half a bottle on most days, monitored for withdrawal symptoms."
+        }
+      ],
+      "events": [
+        { "date": "1985", "type": "other", "source": "self_report",
+          "description": "Light social drinking over many years (self-report)." },
+        { "date": "2024-02", "type": "life_event", "source": "self_report",
+          "description": "Husband dies after a long illness." },
+        { "date": "2024-06", "type": "use_escalation", "use": "alcohol", "source": "self_report",
+          "description": "Daily evening wine drinking begins." },
+        { "date": "2026-03", "type": "health_event", "source": "self_report",
+          "description": "First fall at home." },
+        { "date": "2026-07", "type": "health_event", "source": "records",
+          "description": "Second fall at home." },
+        { "date": "2026-07", "type": "treatment_start", "intervention": "gp", "source": "records",
+          "description": "GP review and alcohol screening; agrees to reduce drinking." },
+        { "date": "2026-08", "type": "treatment_start", "intervention": "grief", "source": "records",
+          "description": "Starts weekly bereavement counselling." },
+        { "date": "2026-08", "type": "treatment_start", "intervention": "reduction", "source": "records",
+          "description": "Starts a supervised reduction plan with monitoring for withdrawal symptoms." }
+      ],
+      "factors": [
+        { "type": "trigger", "domain": "emotional", "description": "Evenings alone", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "emotional", "description": "Anniversaries and holidays", "salience": "high", "source": "self_report" },
+        { "type": "trigger", "domain": "physical", "description": "Insomnia", "salience": "moderate", "source": "self_report" },
+        { "type": "trigger", "domain": "social", "description": "Loneliness", "salience": "high", "source": "self_report" },
+        { "type": "risk_factor", "domain": "physical", "description": "Two falls at home in 2026", "salience": "high", "source": "records" },
+        { "type": "risk_factor", "domain": "physical", "description": "Takes antihypertensive medication", "salience": "moderate", "source": "records" },
+        { "type": "protective_factor", "domain": "family", "description": "Supportive daughter nearby", "salience": "high", "source": "self_report" },
+        { "type": "protective_factor", "domain": "social", "description": "Community walking group", "salience": "moderate", "source": "self_report" }
+      ],
+      "observations": [
+        { "date": "2026-07", "type": "motivation_stage", "label": "Stage of change", "value": "contemplation", "source": "clinician_observation" },
+        { "date": "2026-07", "type": "behavior", "label": "Drinking at review", "value": "About one bottle of wine daily, mostly alone in the evening", "source": "self_report" },
+        { "date": "2026-07", "type": "behavior", "label": "Disclosure", "value": "Embarrassed to discuss drinking; open about grief", "source": "clinician_observation" },
+        { "date": "2026-08", "type": "motivation_stage", "label": "Stage of change", "value": "preparation", "source": "clinician_observation" },
+        { "date": "2026-08", "type": "behavior", "label": "Family involvement", "value": "Daughter is supportive and attends some appointments", "source": "clinician_observation" },
+        { "date": "2026-09", "type": "measure", "label": "Daily intake", "value": "~½ bottle of wine", "unit": "bottles/day", "numeric": 0.5, "baseline": "1 bottle", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Falls since August 2026", "value": "0", "numeric": 0, "unit": "count", "source": "self_report" },
+        { "date": "2026-09", "type": "measure", "label": "Sleep quality", "value": "Poor; under review", "source": "self_report" }
+      ],
+      "symptoms": [
+        { "description": "Grief following bereavement", "domain": "mood", "status": "current", "since": "2024-02", "source": "self_report" },
+        { "description": "Poor sleep since bereavement", "domain": "sleep", "status": "current", "since": "2024-02", "source": "self_report" }
+      ]
+    }
+  ]
+}

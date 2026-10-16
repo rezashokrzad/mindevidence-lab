@@ -1,0 +1,4 @@
+# Optional: the real embedding model (Batch 06). The API and the rest of the tests do not need it
+# (EMBEDDING_BACKEND=hash uses a non-semantic test embedder). This pulls in PyTorch (a large download);
+# the model weights (about 90 MB) are downloaded from Hugging Face on first use.
+sentence-transformers>=3.0,<6

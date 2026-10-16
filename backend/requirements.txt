@@ -1,0 +1,25 @@
+# API
+fastapi==0.115.12
+uvicorn[standard]==0.34.3
+pydantic==2.11.7
+pydantic-settings==2.10.1
+
+# Authentication (Google OIDC): ID-token verification, signed OAuth state cookie
+google-auth==2.40.3
+requests==2.32.4
+itsdangerous==2.2.0
+cryptography==45.0.5
+
+# Workflow orchestration (Batch 08)
+langgraph==1.2.15
+
+# Database
+SQLAlchemy==2.0.43
+alembic==1.16.5
+psycopg[binary]==3.2.10
+python-dotenv==1.1.1
+
+# Tests
+pytest==8.4.2
+httpx==0.28.1
+pymupdf==1.26.3

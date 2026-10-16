@@ -1,0 +1,139 @@
+{
+  "description": "Retrieval evaluation set for the MindEvidence Lab corpus. Each query names the document that should be retrieved and terms that must ALL appear in a relevant passage (a chunk is 'relevant' when it belongs to an expected document and contains every term). Relevance rules were written by hand from the source PDFs and are checked against the stored chunks by `python -m app.retrieval eval --validate`. This is a small hand-made set meant to catch regressions; it is not a benchmark of general retrieval quality.",
+  "queries": [
+    {
+      "id": "Q01",
+      "query": "Why is detoxification by itself not sufficient treatment for addiction?",
+      "expected_documents": [
+        "NIDA-PDAT"
+      ],
+      "expected_terms": [
+        "detoxification",
+        "first stage"
+      ]
+    },
+    {
+      "id": "Q02",
+      "query": "How long does drug addiction treatment usually need to last to be effective?",
+      "expected_documents": [
+        "NIDA-PDAT"
+      ],
+      "expected_terms": [
+        "treatment",
+        "90 days"
+      ]
+    },
+    {
+      "id": "Q03",
+      "query": "What is contingency management and how does it reward abstinence?",
+      "expected_documents": [
+        "NIDA-PDAT"
+      ],
+      "expected_terms": [
+        "contingency management",
+        "incentives"
+      ]
+    },
+    {
+      "id": "Q04",
+      "query": "Which medications are used to treat opioid addiction?",
+      "expected_documents": [
+        "NIDA-PDAT"
+      ],
+      "expected_terms": [
+        "methadone",
+        "buprenorphine"
+      ]
+    },
+    {
+      "id": "Q05",
+      "query": "Which medications are approved to treat alcohol dependence?",
+      "expected_documents": [
+        "NIDA-PDAT",
+        "COCH-AUD-2025"
+      ],
+      "expected_terms": [
+        "acamprosate",
+        "disulfiram",
+        "naltrexone"
+      ]
+    },
+    {
+      "id": "Q06",
+      "query": "Do combined medication and psychosocial treatments reduce heavy drinking more than psychosocial treatment alone?",
+      "expected_documents": [
+        "COCH-AUD-2025"
+      ],
+      "expected_terms": [
+        "psychosocial",
+        "heavy drinking"
+      ]
+    },
+    {
+      "id": "Q07",
+      "query": "How certain is the evidence for adding pharmacological treatment to psychosocial interventions for alcohol use disorder?",
+      "expected_documents": [
+        "COCH-AUD-2025"
+      ],
+      "expected_terms": [
+        "certainty",
+        "alcohol use disorder"
+      ]
+    },
+    {
+      "id": "Q08",
+      "query": "What are the Cochrane review's authors' conclusions about combined interventions?",
+      "expected_documents": [
+        "COCH-AUD-2025"
+      ],
+      "expected_terms": [
+        "authors' conclusions"
+      ]
+    },
+    {
+      "id": "Q09",
+      "query": "What does the WHO guideline recommend for adults with alcohol dependence?",
+      "expected_documents": [
+        "WHO-GL-2023"
+      ],
+      "expected_terms": [
+        "alcohol dependence",
+        "recommendation"
+      ]
+    },
+    {
+      "id": "Q10",
+      "query": "What does the WHO mhGAP guideline say about psychosocial interventions for cannabis use disorders?",
+      "expected_documents": [
+        "WHO-GL-2023"
+      ],
+      "expected_terms": [
+        "cannabis",
+        "psychosocial"
+      ]
+    },
+    {
+      "id": "Q11",
+      "query": "How are the strength of a recommendation and the certainty of evidence graded in the WHO guideline?",
+      "expected_documents": [
+        "WHO-GL-2023"
+      ],
+      "expected_terms": [
+        "grade",
+        "certainty of evidence",
+        "strong"
+      ]
+    },
+    {
+      "id": "Q12",
+      "query": "Should people with a drug use disorder also be assessed and treated for co-occurring mental disorders?",
+      "expected_documents": [
+        "NIDA-PDAT"
+      ],
+      "expected_terms": [
+        "co-occurring",
+        "mental"
+      ]
+    }
+  ]
+}
